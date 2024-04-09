@@ -115,13 +115,13 @@ contract RoleAccess is AccessControlEnumerable {
     return true;
   }
 
-    // assign burner role to another EOA or smart contract
+    // assign granter role to another EOA or smart contract
   function grantGranter(address granter) external onlyAdmin returns (bool) {
     grantRole(GRANTER_ROLE, granter);
     return true;
   }
 
-  // revoke burner role to another EOA or smart contract
+  // revoke granter role to another EOA or smart contract
   function revokeGranter(address granter) external onlyAdmin returns (bool) {
     revokeRole(GRANTER_ROLE, granter);
     return true;
