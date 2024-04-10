@@ -25,7 +25,6 @@ contract XToken is Pausable, RoleAccess, ERC20Burnable, ERC20Permit {
     _cap = cap_;
 
     // owner has all roles
-    _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
     _setupRole(ADMIN_ROLE, _msgSender());
     _setupRole(MINTER_ROLE, _msgSender());
     _setupRole(BURNER_ROLE, _msgSender());
