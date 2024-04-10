@@ -58,7 +58,6 @@ contract RoleAccess is AccessControlEnumerable {
 
   function addRoleMember(bytes32 role, address member)
     external
-    onlyAdmin
     returns (bool)
   {
     grantRole(role, member);
@@ -67,7 +66,6 @@ contract RoleAccess is AccessControlEnumerable {
 
   function removeRoleMember(bytes32 role, address member)
     external
-    onlyAdmin
     returns (bool)
   {
     if (hasRole(role, member)) {
@@ -92,37 +90,37 @@ contract RoleAccess is AccessControlEnumerable {
   // A few helper functions:
 
   // assign minter role to another EOA or smart contract
-  function grantMinter(address minter) external onlyAdmin returns (bool) {
+  function grantMinter(address minter) external returns (bool) {
     grantRole(MINTER_ROLE, minter);
     return true;
   }
 
   // revoke minter role to another EOA or smart contract
-  function revokeMinter(address minter) external onlyAdmin returns (bool) {
+  function revokeMinter(address minter) external returns (bool) {
     revokeRole(MINTER_ROLE, minter);
     return true;
   }
 
   // assign burner role to another EOA or smart contract
-  function grantBurner(address burner) external onlyAdmin returns (bool) {
+  function grantBurner(address burner) external returns (bool) {
     grantRole(BURNER_ROLE, burner);
     return true;
   }
 
   // revoke burner role to another EOA or smart contract
-  function revokeBurner(address burner) external onlyAdmin returns (bool) {
+  function revokeBurner(address burner) external returns (bool) {
     revokeRole(BURNER_ROLE, burner);
     return true;
   }
 
     // assign granter role to another EOA or smart contract
-  function grantGranter(address granter) external onlyAdmin returns (bool) {
+  function grantGranter(address granter) external returns (bool) {
     grantRole(GRANTER_ROLE, granter);
     return true;
   }
 
   // revoke granter role to another EOA or smart contract
-  function revokeGranter(address granter) external onlyAdmin returns (bool) {
+  function revokeGranter(address granter) external returns (bool) {
     revokeRole(GRANTER_ROLE, granter);
     return true;
   }
@@ -130,7 +128,6 @@ contract RoleAccess is AccessControlEnumerable {
   // assign blacklister role to another EOA or smart contract
   function grantBlacklister(address blacklister)
     external
-    onlyAdmin
     returns (bool)
   {
     grantRole(BLACKLISTER_ROLE, blacklister);
@@ -140,7 +137,6 @@ contract RoleAccess is AccessControlEnumerable {
   // revoke blacklister role to another EOA or smart contract
   function revokeBlacklister(address blacklister)
     external
-    onlyAdmin
     returns (bool)
   {
     revokeRole(BLACKLISTER_ROLE, blacklister);
